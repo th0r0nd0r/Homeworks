@@ -6,15 +6,16 @@ class Mancala
     @player1 = Player.new(name1, 1)
     @player2 = Player.new(name2, 2)
     @board = Board.new(name1, name2)
+    @current_player = @player1
   end
 
   def play
     puts "Welcome to Mancala"
     @board.render
-    current_player = @player1
+    @current_player = @player1
     until won?
-      take_turn(current_player)
-      current_player = current_player == @player1 ? @player2 : @player1
+      take_turn(@current_player)
+      @current_player = @current_player == @player1 ? @player2 : @player1
     end
 
     puts "The game is finished! #{winner_message}"
