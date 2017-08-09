@@ -9,7 +9,10 @@ describe Dessert do
   let(:chef) { double("chef") }
 
   describe "#initialize" do
-    it "sets a type"
+    it "sets a type" do
+      let(:chef) {double("chef", name: "Dale")}
+      let(:croissant) {Dessert.new("croissant", 50, chef)}
+    end
 
     it "sets a quantity"
 
