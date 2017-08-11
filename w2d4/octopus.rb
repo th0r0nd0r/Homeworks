@@ -20,10 +20,9 @@ class Array
     )
   end
 
-  # NB: In Ruby, shift is an O(1) operation. This is not true of all languages.
   def self.merge(left, right, &prc)
     merged_array = []
-    # prc = Proc.new { |fish1, fish2| fish1.length <=> fish2.length } unless block_given?
+    prc = Proc.new { |fish1, fish2| fish1.length <=> fish2.length } unless block_given?
     until left.empty? || right.empty?
       case prc.call(left.first, right.first)
       when -1
@@ -43,6 +42,27 @@ def dominant_octopus(fish)
   Array.merge_sort(fish).last
 end
 
-p dominant_octopus(['fish', 'fiiish', 'fiiiiish', 'fiiiish', 'fffish',
-                  'ffiiiiisshh', 'fsh', 'fiiiissshhhhhh'])
-#=> "fiiiissshhhhhh"
+
+
+def clever_octopus(fish)
+  longest_fish = fish[0]
+  fish.each do |fish|
+    longest_fish = fish if fish.length > longest_fish.length
+  end
+
+  longest_fish
+end
+
+tiles_array = ["up", "right-up", "right", "right-down", "down", "left-down", "left",  "left-up" ]
+
+def slow_dance(direction, tiles = tiles_array)
+  tiles.find_index { |tile| tile == direction }
+end
+
+
+
+tiles_hash = {"up" => 0, "right-up" => 1, "right" => 2, "right-down" => 3, "down" => 4, "left-down" => 5, "left" => 6,  "left-up" => 7}
+
+def hash_dance(direction, tiles)
+  tiles[direction]
+end
