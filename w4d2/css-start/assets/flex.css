@@ -1,10 +1,8 @@
-.hamburger-dropdown {
-  background-image: url(./assets/hamburger.png)
-}
 
 body {
   font-family: Arial, sans-serif;
   background-color: #FEFFF1;
+  background-image: hamburger-dropdown.png;
 }
 
 h1 {
@@ -80,6 +78,7 @@ nav ul {
 }
 
 nav ul li {
+  /*display: inline-block;*/
 }
 
 nav ul li a {

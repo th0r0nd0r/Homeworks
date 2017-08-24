@@ -3,6 +3,10 @@
   box-sizing: border-box;
 }
 
+.hamburger-dropdown {
+  display: none;
+}
+
 /* Attribute selector targeting all elements
 with a class attribute containing 'col-' */
 [class*='col-'] {
@@ -38,4 +42,35 @@ with a class attribute containing 'col-' */
   [class*='col-'] {
     width: 100%;
   }
+}
+
+@media all and (max-width: 900px) {
+  nav ul {
+    display: none;
+  }
+
+
+  .hamburger-dropdown {
+    display: block;
+  }
+
+  .hamburger-dropdown > li {
+    background-image: url(/Users/Parker/desktop/homeworks/w4d2/css-start/assets/hamburger.png);
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .hamburger-dropdown > ul {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    flex-direction: column;
+    cursor: pointer;
+    box-shadow: black 5px 5px 10px;
+  }
+
 }
