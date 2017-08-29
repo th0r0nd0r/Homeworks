@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   # If a password was set, we validate it meets the requirements.
